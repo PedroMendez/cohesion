@@ -1,38 +1,199 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+@keyframes hide-before {
+    0% {
+        transform: scaleY(1);
+        box-shadow: 0 8px 1px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        transform: scaleY(0);
+        box-shadow: 0 0 1px transparent;
+    }
+}
+@keyframes reveal-after {
+    0% {
+        transform: scaleY(0);
+        box-shadow: 0 0 1px transparent;
+    }
+    to {
+        transform: scaleY(1);
+        box-shadow: 0 8px 1px rgba(0, 0, 0, 0.1);
+    }
+}
+.ti {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+}
+.ti:first-child {
+    margin-left: 0;
+}
+.ti:last-child {
+    margin-right: 0;
+}
+.ti-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 72px;
+    height: 64px;
+    padding: 0 8px;
+    background-color: #343650;
+    border-radius: 8px;
+    box-shadow: 0 8px 1px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+    .ti-card {
+        min-width: 96px;
+        height: 72px;
+    }
+}
+@media (min-width: 800px) {
+    .ti-card {
+        min-width: 128px;
+        height: 96px;
+    }
+}
+.ti-card:before {
+    left: -4px;
+}
+.ti-card:after,
+.ti-card:before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    background-color: #1e1f29;
+    border-radius: 50%;
+}
+.ti-card:after {
+    right: -4px;
+}
+.card-crease {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.card-before-faded {
+    display: none;
+}
+.card-before-animate {
+    transform: scaleY(1);
+    animation-name: hide-before;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+}
+.card-after-faded {
+    display: none;
+}
+.card-after-animate {
+    transform: scaleY(0);
+    animation-name: reveal-after;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+}
+.card-text {
+    color: #fb6087;
+    font-size: 2rem;
+}
+@media (min-width: 600px) {
+    .card-text {
+        font-size: 3rem;
+    }
+}
+@media (min-width: 800px) {
+    .card-text {
+        font-size: 4rem;
+    }
+}
+.ti-label {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #8486a9;
+}
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+.timer {
+    display: flex;
+}
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Red Hat Text, sans-serif;
+    font-weight: 700;
+}
+html {
+    font-size: 14px;
+}
+.main {
+    width: 100vw;
+    height: 100vh;
+    min-height: 600px;
+    background-image: url(images/pattern-hills.svg), url(images/bg-stars.svg);
+    background-repeat: no-repeat, repeat;
+    background-position: bottom, 0 0;
+    background-color: #1e1f29;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+    height: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+}
+.main-heading {
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: #fff;
+    opacity: 0.9;
+}
+@media (min-width: 600px) {
+    .main-heading {
+        font-size: 1.5rem;
+    }
+}
+@media (min-width: 800px) {
+    .main-heading {
+        font-size: 2rem;
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+.timer-icons {
+    display: flex;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.social-button {
+    margin: 0 8px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.social-button:focus {
+    outline: none;
 }
-
-.App-link {
-  color: #61dafb;
+.facebook:hover path {
+    fill: #4267b2;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.instagram:hover path {
+    fill: #c13584;
+}
+.pinterest:hover path {
+    fill: #c92228;
+}
+.social-icon path {
+    transition: 0.3s;
 }
